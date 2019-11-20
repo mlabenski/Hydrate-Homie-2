@@ -1,0 +1,67 @@
+<ion-header class="header-page">
+  <ion-toolbar>
+    <img src="../../assets/photos/dorms/hydrate-homie-has-yellow-not-transparent.png" class='logo'>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="card-background-page" >
+  <ion-grid class="ion-no-padding">
+        <ion-row>
+            <ion-col><h2 style="text-align: center; color: #38B6FF;"> <ion-icon name="pin" slot="start"></ion-icon>Choose Your Dorm</h2></ion-col>
+        </ion-row>
+    <ion-row>
+      <ion-col col-12 col-md-6 col-lg-4 col-xl-3 *ngFor="let dorm of dorms" (click)="goToDetails(dorm)">
+        <div class="wrapper">
+            <ion-card class="activated">
+                <img src={{dorm.src}} [ngStyle]="styleObject(dorm.maketransparent)"/>
+                <ion-card-header>
+                  <ion-card-subtitle  [ngStyle]= "{'color': getColor(dorm.doorsidedelivery)}">Door-side Delivery</ion-card-subtitle>
+                  <ion-card-title>{{dorm.name}}</ion-card-title>
+                </ion-card-header>
+              </ion-card>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+<div class="container">
+    <h2 style="text-align: center; color: #38B6FF;"> <ion-icon name="alarm"></ion-icon>Delivery Info</h2>
+  <ion-item>
+      <ion-label>Room #</ion-label>
+      <ion-input type="text" [(ngModel)]="roomnumber" name="roomnumber"></ion-input>
+      <ion-label>YCP Email</ion-label>
+      <ion-input type="text" [(ngModel)]="email" name="email"></ion-input>
+  </ion-item>
+
+      <h2 style="text-align: center; color: #38B6FF;"> <ion-icon name="alarm"></ion-icon>Best Time to Deliver</h2>
+
+
+    <ion-item style="background-color: rgb(168, 155, 155)">
+        <ion-label>Date</ion-label>
+        <ion-datetime [(ngModel)]="date" display-format="DD MMM YYYY" min="2019-11-19" max="2020-01-30" ></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Time</ion-label>
+        <ion-datetime [(ngModel)]="time" display-format="hh mm A"></ion-datetime>
+      </ion-item>
+      
+</div>
+
+  <ion-card>
+    <ion-item>
+      <ion-icon name="pin" slot="start"></ion-icon>
+      <ion-label>Finishing up,</ion-label>
+      <ion-button fill="outline" slot="end" (click)="onSubmit()">Get Venmo Info!</ion-button>
+      <ion-button fill="outline" slot="end" (click)="get()">Test info</ion-button>
+    </ion-item>
+
+    <ion-card-content style="background-color: rgb(13, 184, 13); color: white; margin-top: 15px;">
+      This service works sololy through venmo transactions, you'll be provided with a unique venmo description neccessary to confirm the transaction!!
+    </ion-card-content>
+    <ion-card-content style="background-color: #F79862; color: white;">
+        Dont see your dorm listed? Contact us at hydratehomie@gmail.com about special delivery services, also reach out if you'd like to be a homie and deliver waters with us!
+      </ion-card-content>
+  </ion-card>
+
+</ion-content>

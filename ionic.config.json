@@ -1,0 +1,7 @@
+{
+  "name": "hydrate-homie",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
